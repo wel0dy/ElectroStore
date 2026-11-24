@@ -1,0 +1,93 @@
+﻿<Window x:Class="ElectroStoreApp.ProductEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Товар"
+        Icon="pack://application:,,,/ElectroStoreApp;component/Images/Logo.ico"
+        Height="640" Width="620"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="ID товара:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="IdTextBox" Grid.Row="0" Grid.Column="1" IsReadOnly="True" Background="#EEEEEE" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Артикул *:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="ArticleTextBox" Grid.Row="1" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Наименование *:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="NameTextBox" Grid.Row="2" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Категория *:" VerticalAlignment="Center" Margin="0,4"/>
+                <ComboBox x:Name="CategoryComboBox" Grid.Row="3" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Производитель *:" VerticalAlignment="Center" Margin="0,4"/>
+                <ComboBox x:Name="ManufacturerComboBox" Grid.Row="4" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" Text="Поставщик *:" VerticalAlignment="Center" Margin="0,4"/>
+                <ComboBox x:Name="SupplierComboBox" Grid.Row="5" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="6" Grid.Column="0" Text="Единица измерения *:" VerticalAlignment="Center" Margin="0,4"/>
+                <ComboBox x:Name="UnitComboBox" Grid.Row="6" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="7" Grid.Column="0" Text="Цена (руб.) *:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="PriceTextBox" Grid.Row="7" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="8" Grid.Column="0" Text="Скидка (0–100%) *:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="DiscountTextBox" Grid.Row="8" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="9" Grid.Column="0" Text="Остаток на складе *:" VerticalAlignment="Center" Margin="0,4"/>
+                <TextBox x:Name="StockTextBox" Grid.Row="9" Grid.Column="1" Margin="0,4" Padding="4"/>
+
+                <TextBlock Grid.Row="10" Grid.Column="0" Text="Описание и фото:" VerticalAlignment="Top" Margin="0,8"/>
+                <StackPanel Grid.Row="10" Grid.Column="1" Margin="0,4">
+                    <TextBox x:Name="DescriptionTextBox" Height="64" TextWrapping="Wrap" AcceptsReturn="True" Padding="4"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                        <Border BorderBrush="Black" BorderThickness="1" Width="150" Height="100">
+                            <Image x:Name="PreviewImage" Stretch="Uniform"/>
+                        </Border>
+                        <StackPanel Margin="12,0,0,0" VerticalAlignment="Center">
+                            <Button Content="Выбрать фото (300×200)" Click="SelectPhotoButton_Click"/>
+                            <Button Content="Сбросить фото" Click="ClearPhotoButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <Grid Grid.Row="1" Margin="0,12,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="DeleteButton" Grid.Column="0" Content="Удалить товар" Background="#C0392B" Click="DeleteButton_Click"/>
+            <Button Grid.Column="2" Content="Сохранить" IsDefault="True" Click="SaveButton_Click"/>
+            <Button Grid.Column="3" Content="Отмена" IsCancel="True" Click="CancelButton_Click"/>
+        </Grid>
+    </Grid>
+</Window>
